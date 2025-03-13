@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import './index.css'
@@ -6,9 +6,8 @@ import AppPreview from './assets/App_Preview.png'
 
 const navigation = [
   { name: 'About', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Updates', href: '#' },
-  { name: 'Developers', href: '#' },
+  { name: 'Features', href: '#features' },
+  { name: 'Developers', href: '#developers' },
 ]
 
 function App() {
@@ -161,7 +160,7 @@ function App() {
           </p>
         </div>
 
-        <section className="text-center">
+        <section id = "features" className="text-center">
           <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
             <div className="max-w-screen-md mx-auto mb-8 lg:mb-16">
               <h2 className="mt-4 text-5xl font-semibold text-gray-900">
@@ -180,7 +179,7 @@ function App() {
                     {/* ...existing svg path... */}
                   </svg>
                 </div>
-                <h3 className="mb-2 text-xl font-bold">Admin Tools</h3>
+                <h3 className="mb-2 text-xl font-bold">Access Control</h3>
                 <p className="mt-2 mx-auto max-w-2xl text-gray-600">
                   With InternTrail, you can monitor and manage your student trainee's records and accomplishments. Making your job easier than ever before!
                 </p>
@@ -196,9 +195,123 @@ function App() {
                     {/* ...existing svg path... */}
                   </svg>
                 </div>
+                <h3 className="mb-2 text-xl font-bold">Dashboard Overview</h3>
+                <p className="mt-2 mx-auto max-w-2xl text-gray-600">
+                Stay on track with a real-time dashboard that displays your internship progress, upcoming tasks, and important updates all in one place.
+                </p>
+              </div>
+
+              <div>
+                <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-indigo-100 lg:h-12 lg:w-12 dark:bg-indigo-900 mx-auto">
+                  <svg
+                    className="w-5 h-5 text-indigo-600 lg:w-6 lg:h-6 dark:text-indigo-300"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    {/* ...existing svg path... */}
+                  </svg>
+                </div>
+                <h3 className="mb-2 text-xl font-bold">Announcements Hub</h3>
+                <p className="mt-2 mx-auto max-w-2xl text-gray-600">
+                Stay informed with important news, deadlines, and internship-related updates.
+                </p>
+              </div>
+
+              <div>
+                <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-indigo-100 lg:h-12 lg:w-12 dark:bg-indigo-900 mx-auto">
+                  <svg
+                    className="w-5 h-5 text-indigo-600 lg:w-6 lg:h-6 dark:text-indigo-300"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    {/* ...existing svg path... */}
+                  </svg>
+                </div>
+                <h3 className="mb-2 text-xl font-bold">Company Directory </h3>
+                <p className="mt-2 mx-auto max-w-2xl text-gray-600">
+                Explore and connect with partner companies for internship opportunities.
+                </p>
+              </div>
+
+              <div>
+                <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-indigo-100 lg:h-12 lg:w-12 dark:bg-indigo-900 mx-auto">
+                  <svg
+                    className="w-5 h-5 text-indigo-600 lg:w-6 lg:h-6 dark:text-indigo-300"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    {/* ...existing svg path... */}
+                  </svg>
+                </div>
+                <h3 className="mb-2 text-xl font-bold">File Storage</h3>
+                <p className="mt-2 mx-auto max-w-2xl text-gray-600">
+                Upload, organize, and access essential documents like resumes, reports, and certificates.
+                </p>
+              </div>
+              
+              <div>
+                <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-indigo-100 lg:h-12 lg:w-12 dark:bg-indigo-900 mx-auto">
+                  <svg
+                    className="w-5 h-5 text-indigo-600 lg:w-6 lg:h-6 dark:text-indigo-300"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    {/* ...existing svg path... */}
+                  </svg>
+                </div>
+                <h3 className="mb-2 text-xl font-bold">Trainee Management </h3>
+                <p className="mt-2 mx-auto max-w-2xl text-gray-600">
+                Track student progress, performance, and evaluations throughout the internship.
+                </p>
+              </div>
+
+              <div>
+                <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-indigo-100 lg:h-12 lg:w-12 dark:bg-indigo-900 mx-auto">
+                  <svg
+                    className="w-5 h-5 text-indigo-600 lg:w-6 lg:h-6 dark:text-indigo-300"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    {/* ...existing svg path... */}
+                  </svg>
+                </div>
+                <h3 className="mb-2 text-xl font-bold">Performance Reports</h3>
+                <p className="mt-2 mx-auto max-w-2xl text-gray-600">
+                Receive structured feedback and progress assessments from supervisors.
+                </p>
+              </div>
+
+
+
+              <div>
+                <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-indigo-100 lg:h-12 lg:w-12 dark:bg-indigo-900 mx-auto">
+                  <svg
+                    className="w-5 h-5 text-indigo-600 lg:w-6 lg:h-6 dark:text-indigo-300"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    {/* ...existing svg path... */}
+                  </svg>
+                </div>
+                <h3 className="mb-2 text-xl font-bold">Emergency Alerts </h3>
+                <p className="mt-2 mx-auto max-w-2xl text-gray-600">
+                Quickly report urgent concerns or incidents related to your internship for immediate assistance.
+                </p>
+              </div>
+
+              <div>
+                <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-indigo-100 lg:h-12 lg:w-12 dark:bg-indigo-900 mx-auto">
+                  <svg
+                    className="w-5 h-5 text-indigo-600 lg:w-6 lg:h-6 dark:text-indigo-300"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    {/* ...existing svg path... */}
+                  </svg>
+                </div>
                 <h3 className="mb-2 text-xl font-bold">Monitoring</h3>
                 <p className="mt-2 mx-auto max-w-2xl text-gray-600">
-                  With InternTrail, you can monitor and manage your student trainee's records and accomplishments. Making your job easier than ever before!
+                  Monitor and manage your student trainee's records and accomplishments. Making your job easier than ever before!
                 </p>
               </div>
 
@@ -250,7 +363,7 @@ function App() {
         </section>
 
         {/* New developer highlights section */}
-        <section className="py-16">
+        <section id="developers" className="py-16">
           <div className="container mx-auto">
             <h2 className="text-5xl font-semibold text-gray-900 text-center mb-12">
               Meet Our Developers
@@ -258,29 +371,29 @@ function App() {
             <div className="flex flex-wrap justify-center gap-8 text-center">
               <div className="w-64">
                 <img
-                  src="path/to/developer1.jpg"
+                  src="public\img\unen.png"
                   alt="Developer 1"
                   className="w-32 h-32 rounded-full mx-auto mb-4"
                 />
                 <h3 className="text-xl font-bold">Onin Binuya</h3>
                 <p className="mt-2 text-gray-600">
-                  Project Manager / Full Stack Developer
+                  Project Manager, Full-stack Developer
                 </p>
               </div>
               <div className="w-64">
                 <img
-                  src="path/to/developer2.jpg"
+                  src="public\img\Maine.png"
                   alt="Developer 2"
                   className="w-32 h-32 rounded-full mx-auto mb-4"
                 />
                 <h3 className="text-xl font-bold">Aldrine Castro</h3>
                 <p className="mt-2 text-gray-600">
-                  Full Stack Developer / UI/UX Designer
+                  Full-stack Developer, UI/UX Designer
                 </p>
               </div>
               <div className="w-64">
                 <img
-                  src="path/to/developer3.jpg"
+                  src="public\img\Vince.png"
                   alt="Developer 3"
                   className="w-32 h-32 rounded-full mx-auto mb-4"
                 />
@@ -291,7 +404,7 @@ function App() {
               </div>
               <div className="w-64">
                 <img
-                  src="path/to/developer4.jpg"
+                  src="public\img\lance.png"
                   alt="Developer 4"
                   className="w-32 h-32 rounded-full mx-auto mb-4"
                 />
@@ -306,9 +419,9 @@ function App() {
                   alt="Developer 5"
                   className="w-32 h-32 rounded-full mx-auto mb-4"
                 />
-                <h3 className="text-xl font-bold">Dex Miranda</h3>
+                <h3 className="text-xl font-bold">Dexter Miranda</h3>
                 <p className="mt-2 text-gray-600">
-                  Project Advisor
+                  Technical Adviser
                 </p>
               </div>
             </div>
