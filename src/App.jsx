@@ -29,50 +29,50 @@ function App() {
   return (
     <div className="bg-white">
       <header className="sticky top-0 z-50 bg-transparent backdrop-blur-md shadow-md">
-      <nav className="flex items-center justify-between p-6 lg:px-8">
-        {/* Logo */}
-        <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5 flex items-center">
-            <img
-              alt="InternTrail Logo"
-              src="/img/official_logo.png"
-              className="h-10 w-auto"
-            />
-            <span className="ml-2 text-gray-900 font-semibold">InternTrail</span>
-          </a>
-        </div>
+  <nav className="flex items-center justify-between p-4 lg:px-6">
+    {/* Logo */}
+    <div className="flex lg:flex-1">
+      <a href="#" className="-m-1.5 p-1.5 flex items-center">
+        <img
+          alt="InternTrail Logo"
+          src="/img/official_logo.png"
+          className="h-8 w-auto"
+        />
+        <span className="ml-2 text-gray-900 font-semibold">InternTrail</span>
+      </a>
+    </div>
 
-        {/* Mobile Menu Button */}
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(true)}
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-          >
-            <span className="sr-only">Open main menu</span>
-            <Menu className="h-6 w-6" />
-          </button>
-        </div>
+    {/* Mobile Menu Button */}
+    <div className="flex lg:hidden">
+      <button
+        type="button"
+        onClick={() => setMobileMenuOpen(true)}
+        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+      >
+        <span className="sr-only">Open main menu</span>
+        <Menu className="h-6 w-6" />
+      </button>
+    </div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex lg:gap-x-12">
-          {navigation.map((item) => (
-            <a key={item.name} href={item.href} className="text-sm font-semibold text-gray-900">
-              {item.name}
-            </a>
-          ))}
-        </div>
+    {/* Desktop Navigation */}
+    <div className="hidden lg:flex lg:gap-x-8">
+      {navigation.map((item) => (
+        <a key={item.name} href={item.href} className="text-sm font-semibold text-gray-900">
+          {item.name}
+        </a>
+      ))}
+    </div>
 
-        {/* Get Started Button (Desktop) */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a
-            href="#"
-            className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"
-          >
-            Get Started
-          </a>
-        </div>
-      </nav>
+    {/* Get Started Button (Desktop) */}
+    <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+      <a
+        href="#"
+        className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"
+      >
+        Get Started
+      </a>
+    </div>
+  </nav>
 
       {/* Mobile Navigation */}
       <Dialog open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} className="lg:hidden">
