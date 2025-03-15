@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { Dialog, DialogPanel } from '@headlessui/react'
+import { useState, useEffect, Fragment } from 'react'
+import { Dialog } from '@headlessui/react'
 import './index.css'
 import AppPreview from './assets/App_Preview.png'
 
@@ -14,7 +14,6 @@ import {
   LayoutDashboard,
   Menu,
   X,
-
 } from 'lucide-react';
 
 const navigation = [
@@ -26,105 +25,112 @@ const navigation = [
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+  // Close menu when clicking on navigation links
+  const handleNavClick = (event) => {
+    // Close the mobile menu
+    setMobileMenuOpen(false);
+
+    // Optional: Smooth scroll to the section
+    const targetId = event.currentTarget.getAttribute('href');
+    if (targetId && targetId.startsWith('#') && targetId !== '#') {
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <div className="bg-white">
-      <header className="sticky top-0 z-50 bg-transparent backdrop-blur-md shadow-md">
-  <nav className="flex items-center justify-between p-4 lg:px-6">
-    {/* Logo */}
-    <div className="flex lg:flex-1">
-      <a href="#" className="-m-1.5 p-1.5 flex items-center">
-        <img
-          alt="InternTrail Logo"
-          src="/img/official_logo.png"
-          className="h-8 w-auto"
-        />
-        <span className="ml-2 text-gray-900 font-semibold">InternTrail</span>
-      </a>
-    </div>
-
-    {/* Mobile Menu Button */}
-    <div className="flex lg:hidden">
-      <button
-        type="button"
-        onClick={() => setMobileMenuOpen(true)}
-        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-      >
-        <span className="sr-only">Open main menu</span>
-        <Menu className="h-6 w-6" />
-      </button>
-    </div>
-
-    {/* Desktop Navigation */}
-    <div className="hidden lg:flex lg:gap-x-8">
-      {navigation.map((item) => (
-        <a key={item.name} href={item.href} className="text-sm font-semibold text-gray-900">
-          {item.name}
-        </a>
-      ))}
-    </div>
-
-    {/* Get Started Button (Desktop) */}
-    <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-      <a
-        href="#"
-        className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"
-      >
-        Get Started
-      </a>
-    </div>
-  </nav>
-
-      {/* Mobile Navigation */}
-      <Dialog open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} className="lg:hidden">
-        <div className="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-64 bg-white px-6 py-6 shadow-lg sm:max-w-sm">
-          {/* Mobile Menu Header */}
-          <div className="flex items-center justify-between">
+        <header className="sticky top-0 z-50 bg-transparent backdrop-blur-md shadow-md">
+        <nav className="flex items-center justify-between p-4 lg:px-6">
+          {/* Logo */}
+          <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5 flex items-center">
-            <img
-              alt="InternTrail Logo"
-              src="/img/official_logo.png"
-              className="h-10 w-auto"
-            />
-            <span className="ml-2 text-gray-900 font-semibold">InternTrail</span>
-          </a>
-            
+              <img
+                alt="InternTrail Logo"
+                src="/img/official_logo.png"
+                className="h-8 w-auto"
+              />
+              <span className="ml-2 text-gray-900 font-semibold">InternTrail</span>
+            </a>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="flex lg:hidden">
             <button
               type="button"
-              onClick={() => setMobileMenuOpen(false)}
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 hover:bg-gray-100 transition-colors"
             >
-              <X className="h-6 w-6" />
+              <span className="sr-only">Open main menu</span>
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
 
-          {/* Mobile Navigation Links */}
-          <div className="mt-6 space-y-4">
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex lg:gap-x-8">
             {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
-                onClick={() => setMobileMenuOpen(false)}
+              <a 
+                key={item.name} 
+                href={item.href} 
+                className="text-sm font-semibold text-gray-900 hover:text-indigo-600 transition duration-300"
+                onClick={item.href.startsWith('#') ? handleNavClick : undefined}
               >
                 {item.name}
               </a>
             ))}
           </div>
 
-          {/* Get Started Button (Mobile) */}
-          <div className="mt-6">
+          {/* Get Started Button (Desktop) */}
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <a
               href="#"
-              className="block w-full rounded-md bg-indigo-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"
-              onClick={() => setMobileMenuOpen(false)}
+              className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 transition duration-300"
             >
               Get Started
             </a>
           </div>
-        </DialogPanel>
-      </Dialog>
-    </header>
+        </nav>
+
+        {/* Mobile Navigation Dropdown */}
+        <div 
+          className={`absolute w-full bg-white shadow-lg transition-all duration-300 ease-in-out transform origin-top lg:hidden ${
+            mobileMenuOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'
+          }`}
+          style={{ maxHeight: mobileMenuOpen ? '100vh' : '0', overflow: 'hidden' }}
+        >
+          {/* Mobile Navigation Links */}
+          <div className="px-4 py-6 space-y-4">
+            {navigation.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50 transition-colors"
+                onClick={handleNavClick}
+              >
+                {item.name}
+              </a>
+            ))}
+            
+            {/* Get Started Button (Mobile) */}
+            <div className="mt-6 pt-2 border-t border-gray-200">
+              <a
+                href="#"
+                className="block w-full rounded-md bg-indigo-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 transition-colors"
+                onClick={handleNavClick}
+              >
+                Get Started
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
 
     <div className="relative isolate px-6 pt-10 lg:px-8">
       <div
@@ -149,7 +155,7 @@ function App() {
         </div>
         <div className="text-center">
           <h1 className="text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
-            InternTrail – Empowering Internships, Simplifying Management
+            InternTrail – empowering internships, simplifying management
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-500">
             Let's sign you up and gain access to our platform!
@@ -376,7 +382,7 @@ function App() {
               </div>
               <div className="w-64">
                 <img
-                  src="path/to/developer5.jpg"
+                  src="public\img\SirDex.jpg"
                   alt="Developer 5"
                   className="w-32 h-32 rounded-full mx-auto mb-4"
                 />
@@ -407,10 +413,10 @@ function App() {
         <section className="py-50">
           <div className="container mx-auto text-center">
             <h2 className="text-5xl font-semibold text-gray-900">
-              Start using our application today
+              Start using our application today!
             </h2>
             <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-              Incididunt sint fugiat pariatur cupidatat consectetur sit cillum anim id veniam aliqua proident excepteur commodo do ea.
+              InternTrail—where internships meet innovation.  Sign up now and experience a smarter way of managing internships.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-y-3 sm:flex-row sm:gap-x-6">
               <a
