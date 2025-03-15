@@ -338,7 +338,7 @@ function App() {
             <div className="flex flex-wrap justify-center gap-8 text-center">
               <div className="w-64">
                 <img
-                  src="public\img\unen.png"
+                  src="/img/unen.png"
                   alt="Developer 1"
                   className="w-32 h-32 rounded-full mx-auto mb-4"
                 />
@@ -349,7 +349,7 @@ function App() {
               </div>
               <div className="w-64">
                 <img
-                  src="public\img\Maine.png"
+                  src="/img/Maine.png"
                   alt="Developer 2"
                   className="w-32 h-32 rounded-full mx-auto mb-4"
                 />
@@ -360,7 +360,7 @@ function App() {
               </div>
               <div className="w-64">
                 <img
-                  src="public\img\Vince.png"
+                  src="/img/Vince.png"
                   alt="Developer 3"
                   className="w-32 h-32 rounded-full mx-auto mb-4"
                 />
@@ -371,7 +371,7 @@ function App() {
               </div>
               <div className="w-64">
                 <img
-                  src="public\img\lance.png"
+                  src="/img/Lance.png"
                   alt="Developer 4"
                   className="w-32 h-32 rounded-full mx-auto mb-4"
                 />
@@ -382,7 +382,7 @@ function App() {
               </div>
               <div className="w-64">
                 <img
-                  src="public\img\SirDex.jpg"
+                  src="/img/SirDex.jpg"
                   alt="Developer 5"
                   className="w-32 h-32 rounded-full mx-auto mb-4"
                 />
