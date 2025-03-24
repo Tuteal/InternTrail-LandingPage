@@ -1,7 +1,10 @@
 import { useState, useEffect, Fragment } from 'react'
 import { Dialog } from '@headlessui/react'
 import './index.css'
-import AppPreview from './assets/App_Preview.png'
+import Coordashboard from './assets/Coordashboard.png';
+import Deandashboard from './assets/Deandashboard.png';
+import HTEdashboard from './assets/HTEdashboard.png';
+
 
 import {
   ShieldAlert,
@@ -171,13 +174,15 @@ function App() {
         </div>
       </div>
 
-        <div className="flex justify-center mt-2">
-          <img
-            src={AppPreview}
-            alt="App Preview"
-            className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 h-auto"
-          />
-        </div>
+        {/* First App Preview */}
+      <div className="flex justify-center mt-2">
+        <img
+          src={Coordashboard}
+          alt="Coordinator Dashboard Preview"
+          className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 h-auto"
+        />
+      </div>
+
 
         {/* New subheading section */}
         <div className="mt-8 mb-10 text-center">
@@ -288,46 +293,50 @@ function App() {
         </div>
       </section>
   
-        <section className="py-16">
-          <div className="container mx-auto flex flex-col lg:flex-row items-center">
-            <div className="w-full lg:w-1/2">
-              <img
-                src={AppPreview}
-                alt="App Preview"
-                className="w-full h-auto"
-              />
-            </div>
-            <div className="w-full lg:w-1/2 lg:pl-12 mt-8 lg:mt-0">
-              <h2 className="text-4xl font-semibold text-gray-900">
-                Seamless Integration
-              </h2>
-              <p className="mt-4 text-gray-600">
-                InternTrail complements your existing systems, providing a smooth and efficient workflow for managing internships. Experience the ease of use and powerful features that InternTrail offers.
-              </p>
-            </div>
+        {/* Second App Preview */}
+      <section className="py-16">
+        <div className="container mx-auto flex flex-col lg:flex-row items-center">
+          <div className="w-full lg:w-1/2">
+            <img
+              src={Deandashboard}
+              alt="Dean Dashboard Preview"
+              className="w-full h-auto"
+            />
           </div>
-        </section>
+          <div className="w-full lg:w-1/2 lg:pl-12 mt-8 lg:mt-0">
+            <h2 className="text-4xl font-semibold text-gray-900">
+              Seamless Integration
+            </h2>
+            <p className="mt-4 text-gray-600">
+              InternTrail complements your existing systems, providing a smooth and efficient workflow for managing internships. Experience the ease of use and powerful features that InternTrail offers.
+            </p>
+          </div>
+        </div>
+      </section>
+
         
         {/* Flipped version of the "Seamless Integration" section */}
-        <section className="py-16">
-          <div className="container mx-auto flex flex-col lg:flex-row items-center">
-            <div className="w-full lg:w-1/2 lg:order-2">
-              <img
-                src={AppPreview}
-                alt="App Preview"
-                className="w-full h-auto"
-              />
-            </div>
-            <div className="w-full lg:w-1/2 lg:pr-12 mt-8 lg:mt-0 lg:order-1">
-              <h2 className="text-4xl font-semibold text-gray-900">
-              Streamlined Management
-              </h2>
-              <p className="mt-4 text-gray-600">
-                InternTrail centralizes OJT management, offering progress tracking, intuitive reporting, and seamless coordination between trainees, coordinators, and HTE supervisors. Stay organized and in control with ease.
-              </p>
-            </div>
+        {/* Third App Preview */}
+      <section className="py-16">
+        <div className="container mx-auto flex flex-col lg:flex-row items-center">
+          <div className="w-full lg:w-1/2 lg:order-2">
+            <img
+              src={HTEdashboard}
+              alt="HTE Dashboard Preview"
+              className="w-full h-auto"
+            />
           </div>
-        </section>
+          <div className="w-full lg:w-1/2 lg:pr-12 mt-8 lg:mt-0 lg:order-1">
+            <h2 className="text-4xl font-semibold text-gray-900">
+              Streamlined Management
+            </h2>
+            <p className="mt-4 text-gray-600">
+              InternTrail centralizes OJT management, offering progress tracking, intuitive reporting, and seamless coordination between trainees, coordinators, and HTE supervisors. Stay organized and in control with ease.
+            </p>
+          </div>
+        </div>
+      </section>
+
 
         {/* New developer highlights section */}
         <section id="developers" className="py-16">
